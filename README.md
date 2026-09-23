@@ -22,39 +22,25 @@ The project is being developed as a learning and portfolio project, with an emph
 
 The system is divided into several independent components.
 
-```text
-                       ┌────────────────────────┐
-                       │ Transaction Generator  │
-                       │        Python          │
-                       └───────────┬────────────┘
-                                   │
-                                   ▼
-                         ┌──────────────────┐
-                         │       n8n        │
-                         │ Workflow         │
-                         │ Orchestration    │
-                         └────────┬─────────┘
-                                  │
-                                  ▼
-                    ┌──────────────────────────┐
-                    │         Backend          │
-                    │      Spring Boot        │
-                    │                          │
-                    │     ┌──────────────┐     │
-                    │     │    Drools    │     │
-                    │     │ Rules Engine │     │
-                    │     └──────────────┘     │
-                    └────────────┬─────────────┘
-                                 │
-                    ┌────────────┴────────────┐
-                    ▼                         ▼
-             ┌──────────────┐          ┌──────────────┐
-             │    Rules     │          │  PostgreSQL  │
-             │              │          │              │
-             │ Customer     │          │ Transaction  │
-             │ Transaction  │          │ Data         │
-             └──────────────┘          └──────────────┘
+```mermaid
+flowchart TD
+    TG[Transaction Generator<br/>Python]
+    N8N[n8n<br/>Workflow Orchestration]
+    BE[Backend<br/>Spring Boot]
+    DR[Drools<br/>Rules Engine]
+    CR[Customer Rules]
+    TR[Transaction Rules]
+    PG[(PostgreSQL)]
+
+    TG --> N8N
+    N8N --> BE
+    BE --> DR
+    CR --> DR
+    TR --> DR
+    BE --> PG
 ```
+
+
 
 ---
 
