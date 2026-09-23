@@ -184,29 +184,25 @@ The Docker Compose directories are kept separate so that each container can be c
 # Transaction Flow
 
 The planned transaction flow is:
+```mermaid id="73152"
+flowchart TD
+    TG[Transaction Generator<br/>Python]
+    N8N[n8n<br/>Workflow]
+    BE[Spring Boot<br/>Backend]
+    DR[Drools<br/>Rules Engine]
+    R[Customer & Transaction<br/>Rules]
+    PG[(PostgreSQL)]
+    MON[Transaction Monitor]
 
-```text
-1. Transaction Generator
-          │
-          ▼
-2. n8n Workflow
-          │
-          ▼
-3. Spring Boot Backend
-          │
-          ▼
-4. Drools Rules Engine
-          │
-          ├── Customer Rules
-          │
-          └── Transaction Rules
-          │
-          ▼
-5. Processing Result
-          │
-          ▼
-6. PostgreSQL
+    TG -->|Generate transaction| N8N
+    N8N -->|Submit transaction| BE
+    BE -->|Evaluate transaction| DR
+    R -->|Rules| DR
+    DR -->|Evaluation result| BE
+    BE -->|Store transaction & result| PG
+    BE -->|Monitoring data| MON
 ```
+
 
 A future **transaction-monitor** component will provide additional monitoring functionality as the system develops.
 
