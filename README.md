@@ -1,4 +1,7 @@
 # AML Transaction Monitoring System
+## License
+This is true open-source software, licensed under the GNU General Public License version 3 (GPLv3)
+
 
 **Project State: IN_PROGRESS**
 
