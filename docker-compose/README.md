@@ -127,3 +127,9 @@ The `hello-world` container should download and run successfully.
 Do **not** install Docker Engine separately inside Ubuntu.
 
 Docker Desktop provides the Docker Engine and integrates it with WSL 2. Installing another Docker Engine inside the Ubuntu distribution can create conflicts.
+
+## Deploying n8N and postgres
+We need a common network
+```bash
+docker network create n8n-network
+```

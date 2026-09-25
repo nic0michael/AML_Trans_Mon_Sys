@@ -1,22 +1,18 @@
 services:
-
   n8n:
     image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}
+    user: root
     container_name: ${N8N_CONTAINER_NAME}
     restart: unless-stopped
-
     ports:
-      - "${N8N_PORT}:5678"
-
+      - ${N8N_PORT}:5678
     environment:
       # General
       - TZ=${TIMEZONE}
       - GENERIC_TIMEZONE=${TIMEZONE}
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
-
       # n8n
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-
       # PostgreSQL
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=${DB_POSTGRESDB_HOST}
@@ -24,8 +20,11 @@ services:
       - DB_POSTGRESDB_DATABASE=${DB_POSTGRESDB_DATABASE}
       - DB_POSTGRESDB_USER=${DB_POSTGRESDB_USER}
       - DB_POSTGRESDB_PASSWORD=${DB_POSTGRESDB_PASSWORD}
-
     volumes:
       - ./n8n-data:/home/node/.n8n
       - ./local-files:/files
-      
+    networks:
+      - n8n-network
+networks:
+  n8n-network:
+    external: true

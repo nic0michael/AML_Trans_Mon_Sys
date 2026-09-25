@@ -427,7 +427,7 @@ Codex must not change, add or remove business rules, scores or thresholds withou
 
 ### 11.3 Deploy Existing Docker Containers
 
-State: IN_PROGRESS
+State: `COMPLETED`
 
 Owner: US
 
