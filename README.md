@@ -10,7 +10,7 @@ This open-source projects are licensed under the **GNU General Public License ve
 For the complete terms, see the **[GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.htm)**. \
 And [gcc.gnu.org](https://gcc.gnu.org/onlinedocs/libstdc%2B%2B/manual/appendix_gpl.html) "Appendix D. GNU General Public License version 3"
 
----
+## The Project details
 
 **Project State: IN_PROGRESS**
 
