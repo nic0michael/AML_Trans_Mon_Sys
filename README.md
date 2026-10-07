@@ -1,6 +1,6 @@
 # AML Transaction Monitoring System
 ## Software License GPL3
-This open-source projects are licensed under the **GNU General Public License version 3 (GPLv3)**.
+This open-source project is licensed under the **GNU General Public License version 3 (GPLv3)**.
 
 * **Private/Internal Use:** You may use and modify the software for personal or internal organisational use without publishing your changes.
 * **Distribution:** If you distribute the software, including modified versions, you must provide the corresponding source code under the GPLv3.
